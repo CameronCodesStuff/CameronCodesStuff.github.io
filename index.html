@@ -37,11 +37,11 @@ src=&quot;sand.mp3&quot; autoplay&gt;
 What do you do?
 [[try force youself through]]
 or
-{
-(if: $shovel is true) [[Start digging]]
 
-(else:) [[turn back and look for a tool]] 
-}</tw-passagedata><tw-passagedata pid="7" name="try force youself through" tags="" position="500,650" size="100,100">You try to force you way through but there is too much debris...
+[[Start digging]]
+
+ [[turn back and look for a tool]] 
+</tw-passagedata><tw-passagedata pid="7" name="try force youself through" tags="" position="500,650" size="100,100">You try to force you way through but there is too much debris...
 [[continue]] </tw-passagedata><tw-passagedata pid="8" name="turn back and look for a tool" tags="" position="625,650" size="100,100">You adventure back the way you came and you find a small room that you missed.
 [[enter]]
 or
@@ -55,7 +55,9 @@ You open the chest and find a small shovel.
 (set: $shovel to true)
 [[continue]] </tw-passagedata><tw-passagedata pid="13" name="take the soup" tags="" position="625,1025" size="100,100">You take the soup
 [[enter]] </tw-passagedata><tw-passagedata pid="14" name="leave the soup" tags="" position="750,1025" size="100,100">(set: $soup to false)
-You leave the soup to be and go to search the [[chest]].</tw-passagedata><tw-passagedata pid="15" name="Start digging" tags="" position="200,700" size="100,100"></tw-passagedata></tw-storydata>
+You leave the soup to be and go to search the [[chest]].</tw-passagedata><tw-passagedata pid="15" name="Start digging" tags="" position="200,700" size="100,100">(if: $shovel is true) [you start to dig and clear the debris]
+
+(else:) [you do not have a shovel you cannot dig without one go back and see if you can find a shovel [[continue]]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
